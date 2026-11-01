@@ -1,0 +1,73 @@
+styleConstants:
+  - panelRadius = 10
+  - pillY = 2
+  - pillBg=<WindhawkBlur BlurAmount="10" TintColor="{ThemeResource SystemAltHighColor}" TintOpacity="0.2"/>
+controlStyles:
+  - target: Taskbar.TaskbarFrame > Grid#RootGrid > Taskbar.TaskbarBackground > Grid > Rectangle#BackgroundFill
+    styles:
+      - Fill=Transparent
+  - target: Taskbar.TaskbarFrame > Grid#RootGrid > Taskbar.TaskbarBackground > Grid > Rectangle#BackgroundStroke
+    styles:
+      - Visibility=Collapsed
+  - target: Taskbar.TaskbarFrame
+    styles:
+      - Width=Auto
+      - HorizontalAlignment=Left
+  - target: Taskbar.TaskbarFrame > Grid#RootGrid
+    styles:
+      - Margin=8,$pillY,0,$pillY
+      - Padding=4,0,8,0
+      - CornerRadius:=$panelRadius
+      #- Background:=<SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
+      - Background:=$pillBg
+      - BorderThickness=1
+      - BorderBrush:=<SolidColorBrush Color="#30FFFFFF" />
+  - target: Taskbar.TaskbarFrame > Grid#RootGrid > Microsoft.UI.Xaml.Controls.ItemsRepeater#TaskbarFrameRepeater
+    styles:
+      - Width=Auto
+      - HorizontalAlignment=Left
+  - target: Taskbar.TaskListButtonPanel@CommonStates > Border#BackgroundElement
+    styles:
+      - Visibility=Collapsed
+  # leere System-Bereiche ausblenden
+  - target: SystemTray.Stack#MainStack
+    styles:
+      - Visibility=Collapsed
+  - target: SystemTray.Stack#SecondaryClockStack
+    styles:
+      - Visibility=Collapsed
+  - target: SystemTray.Stack#ShowDesktopStack
+    styles:
+      - Visibility=Collapsed
+  # Pfeil-Bereich weg (dein Mod zeigt eh alle Symbole)
+  - target: SystemTray.Stack#NotifyIconStack
+    styles:
+      - Visibility=Collapsed
+  # Tray-Symbole als eigene Pille
+  - target: SystemTray.NotificationAreaIcons#NotificationAreaIcons > ItemsPresenter > StackPanel
+    styles:
+      #- Background:=<SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
+      - Background:=$pillBg
+      - BorderThickness=1
+      - BorderBrush:=<SolidColorBrush Color="#30FFFFFF" />
+      - CornerRadius:=$panelRadius
+      - Margin=6,$pillY,0,$pillY
+      - Padding=5,0,5,0
+  # WLAN / Ton / Akku als Pille
+  - target: SystemTray.OmniButton#ControlCenterButton > Grid
+    styles:
+      #- Background:=<SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
+      - Background:=$pillBg
+      - BorderThickness=1
+      - BorderBrush:=<SolidColorBrush Color="#30FFFFFF" />
+      - CornerRadius:=$panelRadius
+      - Margin=6,$pillY,0,$pillY
+  # Uhr als Pille
+  - target: SystemTray.OmniButton#NotificationCenterButton > Grid
+    styles:
+      #- Background:=<SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
+      - Background:=$pillBg
+      - BorderThickness=1
+      - BorderBrush:=<SolidColorBrush Color="#30FFFFFF" />
+      - CornerRadius:=$panelRadius
+      - Margin=6,$pillY,6,$pillY
