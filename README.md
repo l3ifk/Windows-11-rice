@@ -3,6 +3,7 @@
 
 ## Requirements:
 * Windhawk
+
 that's it. Windhawk helps you modify exisiting Windows components like the Taskbar without installing a seperate Dock or similar. This way it's really efficient and barely uses any resources.
 
 ---
